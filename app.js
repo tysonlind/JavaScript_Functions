@@ -46,6 +46,12 @@ console.log("EXERCISE 3:\n==========\n");
 function quadrant (x,y){
     
 switch (true){
+    case x == 0:
+        console.log("Point is on the x axis");
+        break;
+    case y == 0:
+        console.log("Point is on the y axis");
+        break;
     case x > 0 && y > 0:
         console.log("Quadrant 1");
         break;
@@ -67,6 +73,8 @@ quadrant(-1,4);
 quadrant(1,5);
 quadrant(-1,-3);
 quadrant(1,-4);
+quadrant(0,5);
+quadrant(5,0);
 
 console.log("EXERCISE 4:\n==========\n");
 // Exercise 4 Section
