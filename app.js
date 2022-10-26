@@ -89,13 +89,13 @@ function triangleType (x,y,z){
         return console.log("invalid triangle");
      }
     if (x == y  && y == z) {
-        console.log("equilateral triangle");
+       return console.log("equilateral triangle");
     }
     if (x != y && y != z && z != x) {
-        console.log("scalene triangle");
+       return console.log("scalene triangle");
     }
     if ( x == y && x != z || y == z && x != y || x == z && y != z){
-        console.log("isosceles triangle");
+       return console.log("isosceles triangle");
     }
 }
 
@@ -108,20 +108,29 @@ console.log("EXERCISE 5:\n==========\n");
 // Exercise 5 Section
 
 function dataPlanStatus (planLimit, day, usage) {
-let remainingDays = 30 - day;
-let avgUse = Math.round((usage/day) * 100)/100;
-let netAvg = Math.round((planLimit/30) * 100) / 100;
-let exceedUse = Math.round((avgUse * 30) * 100)/100;
-let avgRemaining = Math.round(((planLimit - usage)/remainingDays) * 100)/100;
+const remainingDays = 30 - day;
+const avgUse = Math.round((usage/day) * 100)/100;
+const netAvg = Math.round((planLimit/30) * 100) / 100;
+const exceedUse = Math.round((avgUse * 30) * 100)/100;
+const avgRemaining = Math.round(((planLimit - usage)/remainingDays) * 100)/100;
+const extraData = (avgUse * 30) - planLimit * -1;
 
 console.log(`${day} days used, ${remainingDays} days remaining`);
 console.log(`Average daily use: ${avgUse}GB`);
 
 if (avgUse > netAvg) {
-    console.log(`You are EXCEEDING your average daily use (${netAvg}GB/day), continuing this high usage, you'll exceed your data plan by ${exceedUse}GB.`);
+    console.log(`You are EXCEEDING your average daily usage (${netAvg}GB/day), continuing this high usage, you'll exceed your data plan by ${exceedUse}GB.`);
     console.log(`To stay below your data plan, use no more than ${avgRemaining}GB/day`);
+}
+else if (avgUse < netAvg) {
+    console.log(`You are under your average daily usage (${netAvg}GB/day), continuing this low usage, you'll have ${extraData}GB of unused data by the end of the month.`);
+    console.log(`To use your remaining data, you may adjust usage to ${avgRemaining}GB/day`);
+} else {
+    console.log("Your usage is on target with your plan limit.")
 }
 
 }
 
 dataPlanStatus(100,12,55);
+dataPlanStatus(500,12,15);
+dataPlanStatus(30,1,1);
