@@ -46,11 +46,14 @@ console.log("EXERCISE 3:\n==========\n");
 function quadrant (x,y){
     
 switch (true){
+    case x == 0 && y == 0:
+        console.log("Point is at origin.");
+        break;
     case x == 0:
-        console.log("Point is on the x axis");
+        console.log("Point is on the y axis");
         break;
     case y == 0:
-        console.log("Point is on the y axis");
+        console.log("Point is on the x axis");
         break;
     case x > 0 && y > 0:
         console.log("Quadrant 1");
